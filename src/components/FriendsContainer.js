@@ -15,20 +15,22 @@ class FriendsContainer extends React.Component {
 
 
   componentDidMount() {
-   const friends = {friends: [{steamid: 1}, {steamid: 2}]}
-   this.props.fetchFriends(friends)
+  //  const friends = {friends: [{steamid: 1}, {steamid: 2}]}
+  //  this.props.fetchFriends(friends)
+  fetch(`/ISteamUser/GetFriendList/v0001/?key=${steamApiKey}&steamid=76561198036778665&relationship=friend`, {
+    crossDomain: true, 
+    method: 'GET',
+    headers: {'Content-Type': 'application/json'},
+  })
+  .then(res => res.json())
+  .then(resJson => {
+    console.log(resJson.friendslist.friends);
+    this.setState({data: resJson.friendslist.friends});
+  })
   }
 
 
- // fetch(`/ISteamUser/GetFriendList/v0001/?key=${steamApiKey}&steamid=76561198036778665&relationship=friend`, {
-    //   crossDomain: true, 
-    //   method: 'GET',
-    //   headers: {'Content-Type': 'application/json'},
-    // })
-    // .then(res => res.json())
-    // .then(resJson => {
-    //   this.setState({data: resJson.friendslist.friends});
-    // })
+ 
 
 
   render() {

@@ -23,6 +23,7 @@ class App extends React.Component {
     })
     .then(res => res.json())
     .then(resJson => {
+      console.log(resJson);
       this.setState({data: resJson.friendslist.friends});
     })
   }

@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from "react-router-dom";
 import { createStore } from 'redux';
 import friendsReducer from './reducers/friendsReducer';
 import { Provider } from 'react-redux';
@@ -13,11 +14,11 @@ const store = createStore(friendsReducer, initialState);
 
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Router>
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>,
+  </Router>,
   document.getElementById('root')
 );
 

@@ -1,5 +1,4 @@
 import React from "react";
-import pikachu from "./funny-pikachu.png";
 import steamApiKey from '../keys/keys'
 
 export default class UserBox extends React.Component {

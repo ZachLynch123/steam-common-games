@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`/ISteamUser/GetFriendList/v0001/?key=${steamApiKey}&steamid=76561198036778665&relationship=friend`, {
+    fetch(`http://localhost:3000/users/`, {
       crossDomain: true, 
       method: 'GET',
       headers: {'Content-Type': 'application/json'},
@@ -23,7 +23,7 @@ class App extends React.Component {
     .then(res => res.json())
     .then(resJson => {
       console.log(resJson);
-      this.setState({data: resJson.friendslist.friends});
+      
     })
   }
   

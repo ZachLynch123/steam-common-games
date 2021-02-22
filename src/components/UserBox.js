@@ -11,16 +11,13 @@ export default class UserBox extends React.Component {
 
 
   componentDidMount(){
-    const userEndpoint = `/ISteamUser/GetPlayerSummaries/v0002/?key=${steamApiKey}&steamids=76561198036778665`
-    fetch(userEndpoint, {
+    fetch("http://localhost:3000/users/", {
       crossDomain: true, 
       method: 'GET',
       headers: {'Content-Type': 'application/json'},
     })
     .then(res => res.json())
-    .then(json => {
-      this.setState({data: json.response.players[0]})
-    })
+    .then(data => this.setState({data: data}))
   }
 
   userInfo() {

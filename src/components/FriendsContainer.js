@@ -35,7 +35,7 @@ class FriendsContainer extends React.Component {
 
   render() {
     console.log(this.props.friends);
-    debugger
+    // debugger
     return (
       <div className="friends-container">
         <FriendList friends={this.state.data}/>

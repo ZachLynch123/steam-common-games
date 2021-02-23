@@ -5,7 +5,7 @@ export default function Friend(props) {
     const friend = props.friend;
     return (
         <div>
-            <img src={friend.avatarmedium}></img>
+            <img className="profile-pic" src={friend.avatarmedium}></img>
             <p>{friend.personaname}</p>
         </div>
     )

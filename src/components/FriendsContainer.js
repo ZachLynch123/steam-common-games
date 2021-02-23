@@ -1,6 +1,5 @@
 import React from "react";
-import FriendList from "./FriendList";
-import steamApiKey from '../keys/keys'
+import Friend from "../components/Friend";
 import { connect } from 'react-redux';
 import fetchFriends from '../actions/fetchFriends';
 
@@ -17,15 +16,14 @@ class FriendsContainer extends React.Component {
   componentDidMount() {
   //  const friends = {friends: [{steamid: 1}, {steamid: 2}]}
   //  this.props.fetchFriends(friends)
-  fetch(`/ISteamUser/GetFriendList/v0001/?key=${steamApiKey}&steamid=76561198036778665&relationship=friend`, {
+  fetch("http://localhost:3000/friends/", {
     crossDomain: true, 
     method: 'GET',
     headers: {'Content-Type': 'application/json'},
   })
   .then(res => res.json())
-  .then(resJson => {
-    console.log(resJson.friendslist.friends);
-    this.setState({data: resJson.friendslist.friends});
+  .then(data => {
+    this.setState({data: data})
   })
   }
 
@@ -34,12 +32,13 @@ class FriendsContainer extends React.Component {
 
 
   render() {
-    console.log(this.props.friends);
     // debugger
+    const friends = this.state.data
     return (
       <div className="friends-container">
-        <FriendList friends={this.state.data}/>
-        
+          {friends.map(friend => {
+            return <Friend friend={friend}/>
+          })}
       </div>
     );
   }

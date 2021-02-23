@@ -1,7 +1,6 @@
 import React from 'react';
 import UserBox from "./UserBox";
 import FriendsContainer from "./FriendsContainer";
-import steamApiKey from '../keys/keys'
 // import steamApiKey from './keys/keys.js'
 
 class App extends React.Component {
@@ -21,9 +20,7 @@ class App extends React.Component {
       headers: {'Content-Type': 'application/json'},
     })
     .then(res => res.json())
-    .then(resJson => {
-      console.log(resJson);
-      
+    .then(resJson => {      
     })
   }
   

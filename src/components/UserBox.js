@@ -1,5 +1,4 @@
 import React from "react";
-import steamApiKey from '../keys/keys'
 
 export default class UserBox extends React.Component {
   constructor() {
@@ -22,7 +21,6 @@ export default class UserBox extends React.Component {
 
   userInfo() {
     const user = this.state.data
-    console.log(user.avatarmedium);
     if (user !== undefined) {
       return (
         <div className="profile-box">

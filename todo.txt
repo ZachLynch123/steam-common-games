@@ -1,0 +1,8 @@
+    Frontend
+- fully impliment redux. use it to impliment the group and async api calls
+- impliment react router. route out home page to enter in steamid
+- style app a bit. maybe react bootstrap to expidite styling? 
+
+    Backend
+- add all games to database for user and friends
+- create api endpoint to get all games with the same appid as user
